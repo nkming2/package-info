@@ -100,13 +100,7 @@ public class SearchDialog extends DialogFragment
 				onAddFlagClick(v);
 			}
 		});
-
 		mFlagContainer = (LinearLayout)v.findViewById(R.id.filter_flags);
-		//mFlagContainer.setHasFixedSize(true);
-		//mFlagContainer.setLayoutManager(new LinearLayoutManager(getActivity()));
-
-		//mFlagAdapter = new MyAdapter();
-		//mFlagContainer.setAdapter(mFlagAdapter);
 
 		if (getArguments() != null)
 		{
@@ -121,56 +115,6 @@ public class SearchDialog extends DialogFragment
 			}
 		}
 	}
-
-/*
-	private static class MyAdapter
-			extends RecyclerView.Adapter<MyAdapter.ViewHolder>
-	{
-		public static class ViewHolder extends RecyclerView.ViewHolder
-		{
-			public ViewHolder(View v)
-			{
-				super(v);
-				remove = (ImageView)v.findViewById(R.id.remove);
-				label = (TextView)v.findViewById(R.id.label);
-				ui_switch = (Switch)v.findViewById(R.id.ui_switch);
-			}
-
-			public ImageView remove;
-			public TextView label;
-			public Switch ui_switch;
-		}
-
-		public void addData(AppInfo.Flag flag)
-		{
-			mFlags.add(new Pair<>(flag, true));
-			notifyItemInserted(mFlags.size() - 1);
-		}
-
-		@Override
-		public ViewHolder onCreateViewHolder(ViewGroup parent, int viewType)
-		{
-			View v = LayoutInflater.from(parent.getContext()).inflate(
-					R.layout.app_flag_row, parent, false);
-			return new ViewHolder(v);
-		}
-
-		@Override
-		public void onBindViewHolder(ViewHolder vh, int position)
-		{
-			Pair<AppInfo.Flag, Boolean> item = mFlags.get(position);
-			vh.label.setText(item.first.toString());
-		}
-
-		@Override
-		public int getItemCount()
-		{
-			return mFlags.size();
-		}
-
-		private List<Pair<AppInfo.Flag, Boolean>> mFlags = new ArrayList<>();
-	}
-*/
 
 	private static final String LOG_TAG = Res.LOG_TAG + "."
 			+ SearchDialog.class.getSimpleName();
@@ -244,7 +188,6 @@ public class SearchDialog extends DialogFragment
 	private void addFlag(AppInfo.Flag flag, boolean state)
 	{
 		mActiveFlags.put(flag, state);
-		//mFlagAdapter.addData(FLAGS[i]);
 		addFlagView(flag, state);
 
 		if (mActiveFlags.size() == IDS.length)
@@ -326,7 +269,6 @@ public class SearchDialog extends DialogFragment
 			AppInfo.Flag.class);
 	private Button mAddFlag;
 	private LinearLayout mFlagContainer;
-	//private MyAdapter mFlagAdapter;
 
 	private SearchDialogListener mListener;
 
