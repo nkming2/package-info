@@ -17,8 +17,10 @@ import android.util.DisplayMetrics;
 
 import com.nkming.utils.content.AsyncTaskLoaderEx;
 import com.nkming.utils.graphic.BitmapCache;
+import com.nkming.utils.graphic.BitmapLoader;
 import com.nkming.utils.graphic.DrawableUtils;
 import com.nkming.utils.io.UriUtils;
+import com.nkming.utils.type.Size;
 import com.nkming.utils.unit.DimensionUtils;
 
 import java.lang.reflect.Field;
@@ -192,23 +194,18 @@ public class AppInfoLoader extends AsyncTaskLoaderEx<List<AppInfo>>
 			return;
 		}
 
-		try
+		BitmapLoader loader = new BitmapLoader(getContext());
+		loader.setTargetSize(new Size(96, 96));
+		Uri uri = UriUtils.getResourceUri(app.getPackageName(), app.getIconId());
+		Bitmap bmp = loader.loadUri(uri);
+		if (bmp == null)
 		{
-			Resources res = getContext().getPackageManager()
-					.getResourcesForApplication(app.getPackageName());
-			int density = res.getDisplayMetrics().densityDpi;
-			Drawable d = res.getDrawableForDensity(app.getIconId(), density);
-			Bitmap bmp = DrawableUtils.toBitmap(d, 96, 96);
-			Uri uri = UriUtils.getResourceUri(app.getPackageName(),
-					app.getIconId());
+			Log.w(LOG_TAG + ".cacheIcon", "Failed while loadUri");
+		}
+		else
+		{
 			BitmapCache.putBitmap(uri.toString(), bmp);
 		}
-		catch (PackageManager.NameNotFoundException e)
-		{
-			e.printStackTrace();
-		}
-		catch (Resources.NotFoundException e)
-		{}
 	}
 
 	private PackageReceiver mReceiver;
