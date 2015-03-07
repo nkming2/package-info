@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Button xmlns:android="http://schemas.android.com/apk/res/android"
+	android:id="@+id/add_flag"
+	android:layout_width="wrap_content"
+	android:layout_height="wrap_content"
+	android:layout_gravity="center_horizontal"
+	android:paddingLeft="8dp"
+	android:paddingRight="8dp"
+	android:background="@drawable/raised_button"
+	android:textColor="@color/primary_text_default_material_dark"
+	android:textAllCaps="true"
+	android:text="Add new flag" />

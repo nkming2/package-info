@@ -33,10 +33,6 @@
 		android:layout_weight="1"
 		android:orientation="vertical"/>
 	
-	<Button
-		android:id="@+id/add_flag"
-		android:layout_width="wrap_content"
-		android:layout_height="wrap_content"
-		android:layout_gravity="center_horizontal"
-		android:text="Add new flag"/>
+	<include
+		layout="@layout/fragment_search_add_flag" />
 </LinearLayout>
