@@ -17,12 +17,11 @@
 		android:layout_marginLeft="16dp"
 		android:layout_marginRight="16dp">
 
-		<com.nkming.utils.widget.ImageViewEx
+		<ImageView
 			android:id="@+id/app_icon"
 			android:layout_width="48dp"
 			android:layout_height="48dp"
-			android:layout_gravity="center_vertical"
-			app:async="true" />
+			android:layout_gravity="center_vertical" />
 
 		<LinearLayout
 			android:layout_width="match_parent"

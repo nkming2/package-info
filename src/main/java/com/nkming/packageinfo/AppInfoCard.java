@@ -6,6 +6,7 @@ import android.animation.ValueAnimator;
 import android.content.Context;
 import android.content.Intent;
 import android.content.pm.PackageManager;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.provider.Settings;
 import android.support.v7.widget.CardView;
@@ -20,7 +21,10 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.nkming.utils.graphic.BitmapCache;
+import com.nkming.utils.graphic.BitmapLoader;
 import com.nkming.utils.io.UriUtils;
+import com.nkming.utils.type.Size;
 
 import java.util.Map;
 
@@ -64,9 +68,7 @@ public class AppInfoCard extends CardView
 	{
 		mApp = app;
 
-		int iconId = (app.getIconId() == 0)
-				? android.R.drawable.sym_def_app_icon : app.getIconId();
-		mIcon.setImageURI(UriUtils.getResourceUri(app.getPackageName(), iconId));
+		loadIcon();
 		if (app.isEnabled())
 		{
 			setCardBackgroundColor(getResources().getColor(
@@ -140,6 +142,9 @@ public class AppInfoCard extends CardView
 	{
 		return mIsAnimating;
 	}
+
+	private static final String LOG_TAG = Res.LOG_TAG + "."
+			+ AppInfoCard.class.getSimpleName();
 
 	private void initAppFlags(AppInfo app)
 	{
@@ -258,6 +263,31 @@ public class AppInfoCard extends CardView
 		i.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK
 				| Intent.FLAG_ACTIVITY_CLEAR_TASK);
 		getContext().startActivity(i);
+	}
+
+	private void loadIcon()
+	{
+		int iconId = (mApp.getIconId() == 0)
+				? android.R.drawable.sym_def_app_icon : mApp.getIconId();
+		Uri uri = UriUtils.getResourceUri(mApp.getPackageName(), iconId);
+		// Check if it's in cache
+		Bitmap bmp = BitmapCache.getBitmap(uri.toString());
+		if (bmp == null)
+		{
+			BitmapLoader loader = new BitmapLoader(getContext());
+			loader.setTargetSize(new Size(96, 96));
+			bmp = loader.loadUri(uri);
+			if (bmp == null)
+			{
+				Log.w(LOG_TAG + ".loadIcon", "Failed while loadUri");
+				return;
+			}
+			else
+			{
+				BitmapCache.putBitmap(uri.toString(), bmp);
+			}
+		}
+		mIcon.setImageBitmap(bmp);
 	}
 
 	private void animateDetailHeight(int from, int to)
