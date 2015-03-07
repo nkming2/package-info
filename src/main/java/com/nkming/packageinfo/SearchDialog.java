@@ -47,8 +47,9 @@ public class SearchDialog extends DialogFragment
 	@Override
 	public Dialog onCreateDialog(Bundle savedInstanceState)
 	{
-		View v = LayoutInflater.from(getActivity()).inflate(
-				R.layout.fragment_search, null);
+		mLayoutInflater = LayoutInflater.from(getActivity());
+
+		View v = mLayoutInflater.inflate(R.layout.fragment_search, null);
 		initView(v);
 
 		MaterialDialog.Builder builder = new MaterialDialog.Builder(
@@ -262,8 +263,8 @@ public class SearchDialog extends DialogFragment
 
 	private void addFlagView(final AppInfo.Flag flag, boolean state)
 	{
-		final View root = LayoutInflater.from(getActivity()).inflate(
-				R.layout.app_flag_row, mFlagContainer, false);
+		final View root = mLayoutInflater.inflate(R.layout.app_flag_row,
+				mFlagContainer, false);
 
 		View remove = root.findViewById(R.id.remove);
 		remove.setOnClickListener(new View.OnClickListener()
@@ -328,4 +329,6 @@ public class SearchDialog extends DialogFragment
 	//private MyAdapter mFlagAdapter;
 
 	private SearchDialogListener mListener;
+
+	private LayoutInflater mLayoutInflater;
 }
