@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
 
-    <string name="app_name">Package Info</string>
+	<string name="app_name">Package Info</string>
+
+    <string name="search_add_flag">New flag</string>
 
 	<string-array name="app_flag_list">
 		<item>Allow backup</item>

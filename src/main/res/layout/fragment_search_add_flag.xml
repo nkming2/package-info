@@ -9,4 +9,4 @@
 	android:background="@drawable/raised_button"
 	android:textColor="@color/primary_text_default_material_dark"
 	android:textAllCaps="true"
-	android:text="Add new flag" />
+	android:text="@string/search_add_flag" />
