@@ -147,7 +147,17 @@ public class AppInfoCard extends CardView
 	{
 		int iconId = (app.getIconId() == 0)
 				? android.R.drawable.sym_def_app_icon : app.getIconId();
-		Uri uri = UriUtils.getResourceUri(app.getPackageName(), iconId);
+		Uri uri;
+		if (iconId == android.R.drawable.sym_def_app_icon)
+		{
+			// Use a universal package name so that only 1 copy is cached
+			uri = UriUtils.getResourceUri(Res.PACKAGE, iconId);
+		}
+		else
+		{
+			uri = UriUtils.getResourceUri(app.getPackageName(), iconId);
+		}
+
 		// Check if it's in cache
 		Bitmap bmp = BitmapCache.getBitmap(uri.toString());
 		if (bmp == null)
