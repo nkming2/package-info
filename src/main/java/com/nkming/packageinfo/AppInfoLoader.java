@@ -183,11 +183,6 @@ public class AppInfoLoader extends AsyncTaskLoaderEx<List<AppInfo>>
 
 	private void cacheIcon(AppInfo app)
 	{
-		if (true)
-		{
-			return;
-		}
-
 		if (app.getIconId() == 0)
 		{
 			// No icon
