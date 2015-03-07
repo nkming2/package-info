@@ -146,6 +146,7 @@ public class SearchDialog extends DialogFragment
 
 	private void onAddFlagClick(View v)
 	{
+		mAddFlagMenuCount = 0;
 		PopupMenu popup = new PopupMenu(getActivity(), v);
 		for (int i = 0; i < FLAGS.length; ++i)
 		{
@@ -158,6 +159,7 @@ public class SearchDialog extends DialogFragment
 			{
 				popup.getMenu().add(Menu.NONE, IDS[i], Menu.NONE,
 						FLAGS[i].toString());
+				++mAddFlagMenuCount;
 			}
 		}
 
@@ -190,9 +192,10 @@ public class SearchDialog extends DialogFragment
 		mActiveFlags.put(flag, state);
 		addFlagView(flag, state);
 
-		if (mActiveFlags.size() == IDS.length)
+		if (mAddFlagMenuCount == 1)
 		{
-			mAddFlag.animate().alpha(0).setDuration(500).setListener(
+			// Adding the last flag
+			mAddFlag.animate().alpha(0).setDuration(200).setListener(
 					new AnimatorListenerAdapter()
 					{
 						@Override
@@ -243,7 +246,7 @@ public class SearchDialog extends DialogFragment
 		mActiveFlags.remove(flag);
 		if (mAddFlag.getVisibility() != View.VISIBLE)
 		{
-			mAddFlag.animate().alpha(1).setDuration(500).setListener(
+			mAddFlag.animate().alpha(1).setDuration(200).setListener(
 					new AnimatorListenerAdapter()
 					{
 						@Override
@@ -269,6 +272,7 @@ public class SearchDialog extends DialogFragment
 			AppInfo.Flag.class);
 	private Button mAddFlag;
 	private LinearLayout mFlagContainer;
+	private int mAddFlagMenuCount;
 
 	private SearchDialogListener mListener;
 
