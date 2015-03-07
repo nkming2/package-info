@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">Package Info</string>
+
+	<string-array name="app_flag_list">
+		<item>Allow backup</item>
+		<item>Debuggable</item>
+		<item>External storage (SD card)</item>
+		<item>Installed for user</item>
+		<item>Large heap</item>
+		<item>Persistent</item>
+		<item>System</item>
+		<item>Privileged</item>
+	</string-array>
+
+</resources>

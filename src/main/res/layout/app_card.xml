@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8"?>
+<com.nkming.packageinfo.AppInfoCard
+	xmlns:android="http://schemas.android.com/apk/res/android"
+	xmlns:tools="http://schemas.android.com/tools"
+	xmlns:app="http://schemas.android.com/apk/res-auto"
+	android:layout_width="match_parent"
+	android:layout_height="wrap_content"
+	android:foreground="?android:attr/selectableItemBackground"
+	app:cardCornerRadius="4dp"
+	app:cardElevation="@dimen/app_card_z"
+	app:cardBackgroundColor="@color/card_bg"
+	app:cardUseCompatPadding="true">
+
+	<FrameLayout
+		android:layout_width="match_parent"
+		android:layout_height="80dp"
+		android:layout_marginLeft="16dp"
+		android:layout_marginRight="16dp">
+
+		<com.nkming.utils.widget.ImageViewEx
+			android:id="@+id/app_icon"
+			android:layout_width="48dp"
+			android:layout_height="48dp"
+			android:layout_gravity="center_vertical"
+			app:async="true" />
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="match_parent"
+			android:layout_marginLeft="64dp"
+			android:layout_marginStart="64dp"
+			android:gravity="center_vertical"
+			android:orientation="vertical">
+
+			<TextView
+				android:id="@+id/app_name"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+				android:maxLines="2"
+				android:ellipsize="end"
+				android:text="Super Fancy Elegant Beautiful Great App"/>
+
+			<TextView
+				android:id="@+id/app_package"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+				android:textColor="?android:textColorSecondary"
+				android:maxLines="2"
+				android:text="com.very.very.very.very.very.very.very.very.very.very.long.package"/>
+		</LinearLayout>
+	</FrameLayout>
+
+	<LinearLayout
+		android:id="@+id/app_detail_container"
+		android:layout_width="match_parent"
+		android:layout_height="wrap_content"
+		android:layout_marginLeft="16dp"
+		android:layout_marginRight="16dp"
+		android:layout_marginTop="80dp"
+		android:paddingBottom="16dp"
+		android:orientation="vertical">
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal">
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+				android:textColor="?android:textColorSecondary"
+				android:lines="1"
+				android:text="Version: " />
+
+			<TextView
+				android:id="@+id/app_version"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+				android:textColor="?android:textColorSecondary"
+				android:text="0.1.2.3 alpha beta RC build 0.1.2.3 alpha beta RC" />
+		</LinearLayout>
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="horizontal">
+
+			<TextView
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+				android:textColor="?android:textColorSecondary"
+				android:lines="1"
+				android:text="Last Update: " />
+
+			<TextView
+				android:id="@+id/app_last_update"
+				android:layout_width="wrap_content"
+				android:layout_height="wrap_content"
+				android:textAppearance="@style/TextAppearance.AppCompat.Body1"
+				android:textColor="?android:textColorSecondary"
+				android:lines="1"
+				android:text="99:99:99 99/99/9999"/>
+		</LinearLayout>
+
+		<LinearLayout
+			android:id="@+id/app_flags_container"
+			android:layout_width="match_parent"
+			android:layout_height="wrap_content"
+			android:orientation="vertical"
+			android:layout_marginTop="8dp"
+			android:layout_marginBottom="8dp">
+		</LinearLayout>
+
+		<LinearLayout
+			android:layout_width="match_parent"
+			android:layout_height="48dp"
+			android:layout_gravity="bottom"
+			android:orientation="horizontal">
+
+			<ImageView
+				android:id="@+id/app_footer_settings"
+				android:layout_width="0dp"
+				android:layout_height="match_parent"
+				android:layout_weight="1"
+				android:paddingTop="8dp"
+				android:paddingBottom="8dp"
+				android:scaleType="fitCenter"
+				android:background="?android:attr/selectableItemBackground"
+				android:src="@drawable/ic_action_settings_light"
+				android:contentDescription="App info" />
+
+			<ImageView
+				android:id="@+id/app_footer_play_store"
+				android:layout_width="0dp"
+				android:layout_height="match_parent"
+				android:layout_weight="1"
+				android:paddingTop="8dp"
+				android:paddingBottom="8dp"
+				android:scaleType="fitCenter"
+				android:background="?android:attr/selectableItemBackground"
+				android:src="@drawable/ic_play_store_light"
+				android:contentDescription="Play Store" />
+
+			<ImageView
+				android:id="@+id/app_footer_launch"
+				android:layout_width="0dp"
+				android:layout_height="match_parent"
+				android:layout_weight="1"
+				android:paddingTop="8dp"
+				android:paddingBottom="8dp"
+				android:scaleType="fitCenter"
+				android:background="?android:attr/selectableItemBackground"
+				android:src="@drawable/ic_action_play_light"
+				android:contentDescription="Launch" />
+		</LinearLayout>
+	</LinearLayout>
+</com.nkming.packageinfo.AppInfoCard>

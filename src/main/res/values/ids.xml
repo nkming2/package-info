@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<item name="menu_allow_backup" type="id"/>
+	<item name="menu_external" type="id"/>
+	<item name="menu_game" type="id"/>
+	<item name="menu_user" type="id"/>
+	<item name="menu_large_heap" type="id"/>
+	<item name="menu_persistent" type="id"/>
+	<item name="menu_system" type="id"/>
+	<item name="menu_privileged" type="id"/>
+	<item name="menu_debuggable" type="id"/>
+	<item name="menu_multiarch" type="id"/>
+</resources>

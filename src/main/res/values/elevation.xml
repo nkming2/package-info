@@ -1,0 +1,5 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+	<dimen name="app_card_z">1dp</dimen>
+	<dimen name="toolbar_z">2dp</dimen>
+</resources>

@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="horizontal"
+	android:layout_width="match_parent"
+	android:layout_height="48dp"
+	android:gravity="center_vertical">
+
+	<ImageView
+		android:id="@+id/remove"
+		android:layout_width="32dp"
+		android:layout_height="32dp"
+		android:padding="8dp"
+		android:clickable="true"
+		android:scaleType="fitCenter"
+		android:background="?android:attr/selectableItemBackground"
+		android:src="@drawable/ic_remove_dark" />
+
+	<TextView
+		android:id="@+id/label"
+		android:layout_width="0dp"
+		android:layout_height="wrap_content"
+		android:layout_weight="1"
+		android:layout_gravity="center_vertical"
+		android:textAppearance="@style/TextAppearance.AppCompat.Subhead"
+		android:text="Label"/>
+
+	<CheckBox
+		android:id="@+id/ui_switch"
+		android:layout_width="wrap_content"
+		android:layout_height="wrap_content"/>
+</LinearLayout>
