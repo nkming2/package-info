@@ -280,6 +280,7 @@ public class AppInfoCard extends CardView
 			if (bmp == null)
 			{
 				Log.w(LOG_TAG + ".loadIcon", "Failed while loadUri");
+				mIcon.setImageDrawable(null);
 				return;
 			}
 			else
