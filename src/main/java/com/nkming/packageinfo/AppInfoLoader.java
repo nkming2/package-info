@@ -183,24 +183,7 @@ public class AppInfoLoader extends AsyncTaskLoaderEx<List<AppInfo>>
 
 	private void cacheIcon(AppInfo app)
 	{
-		if (app.getIconId() == 0)
-		{
-			// No icon
-			return;
-		}
-
-		BitmapLoader loader = new BitmapLoader(getContext());
-		loader.setTargetSize(new Size(96, 96));
-		Uri uri = UriUtils.getResourceUri(app.getPackageName(), app.getIconId());
-		Bitmap bmp = loader.loadUri(uri);
-		if (bmp == null)
-		{
-			Log.w(LOG_TAG + ".cacheIcon", "Failed while loadUri");
-		}
-		else
-		{
-			BitmapCache.putBitmap(uri.toString(), bmp);
-		}
+		AppInfoCard.getIcon(app, getContext());
 	}
 
 	private PackageReceiver mReceiver;
