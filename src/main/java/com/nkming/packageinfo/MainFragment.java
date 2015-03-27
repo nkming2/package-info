@@ -196,7 +196,7 @@ public class MainFragment extends Fragment
 			}
 			mIsExpandIt = mIsExpand.listIterator();
 
-			notifyItemRangeInserted(0, mDisplayApps.size());
+			notifyDataSetChanged();
 		}
 
 		public void setFilterResult(List<AppInfo> filterResult)
