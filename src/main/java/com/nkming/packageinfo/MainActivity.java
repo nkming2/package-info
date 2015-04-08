@@ -1,10 +1,8 @@
 package com.nkming.packageinfo;
 
 import android.app.ActivityManager;
-import android.support.v7.app.ActionBarActivity;
 import android.os.Bundle;
-import android.view.Menu;
-import android.view.MenuItem;
+import android.support.v7.app.ActionBarActivity;
 
 import com.nkming.utils.graphic.BitmapCache;
 
@@ -27,6 +25,11 @@ public class MainActivity extends ActionBarActivity
 			getSupportFragmentManager().beginTransaction()
 					.add(R.id.container, mFrag)
 					.commit();
+		}
+		else
+		{
+			mFrag = (MainFragment)getSupportFragmentManager().findFragmentById(
+					R.id.container);
 		}
 		getSupportActionBar().setElevation(getResources().getDimension(
 				R.dimen.toolbar_z));
